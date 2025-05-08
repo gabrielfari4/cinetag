@@ -8,4 +8,6 @@
 body {
     font-family: var(--fonte);
     background-color: var(--branco);
+    margin: 0;
+    box-sizing: border-box;
 }
