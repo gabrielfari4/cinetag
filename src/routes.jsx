@@ -7,22 +7,19 @@ import Container from "./components/Container";
 import { FavoritosProvider } from "./context/FavoritosProvider";
 import Player from "./pages/Player";
 import NaoEncontrada from "./pages/NaoEncontrada";
+import Base from "./pages/Base";
 
 const AppRoutes = () => {
     return (
         <BrowserRouter>
-            <Cabecalho />
-            <Container>
-                <FavoritosProvider>
-                    <Routes>
-                    <Route path="/" element={<Inicio />} />
-                    <Route path="/favoritos" element={<Favoritos />} />
-                    <Route path="/:id" element={<Player />} />
+            <Routes>
+                <Route path="/" element={<Base />}>
+                    <Route index element={<Inicio />} />
+                    <Route path="favoritos" element={<Favoritos />} />
+                    <Route path=":id" element={<Player />} />
                     <Route path="*" element={<NaoEncontrada />} />
-                </Routes>
-                </FavoritosProvider>
-            </Container>
-            <Rodape />
+                </Route>
+            </Routes>
         </BrowserRouter>
     );
 };
