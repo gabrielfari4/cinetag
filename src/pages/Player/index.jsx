@@ -4,12 +4,19 @@ import Titulo from '../../components/Titulo';
 import styles from './Player.module.css';
 import videos from '@/json/db.json';
 import NaoEncontrada from '../NaoEncontrada';
+import { useEffect, useState } from 'react';
 
 const Player = () => {
+    const [video, setVideo] = useState();
     const parametros = useParams();
-    const video = videos.find((video) => {
-        return video.id === Number(parametros.id)
-    })
+
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/gabrielfari4/cinetag-api/videos?id=${parametros.id}`)
+            .then(response => response.json())
+            .then(data => {
+                setVideo(...data)
+            })
+    }, [])
 
     if (!video) {
         return <NaoEncontrada />
