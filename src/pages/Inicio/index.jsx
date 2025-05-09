@@ -3,10 +3,18 @@ import styles from './Inicio.module.css';
 import Banner from '../../components/Banner';
 import Titulo from '../../components/Titulo';
 import Card from '../../components/Card';
-import videos from '@/json/db.json';
+import { useEffect, useState } from 'react';
 
 const Inicio = () => {
+    const [videos, setVideos] = useState([]);
 
+    useEffect(() => {
+        fetch('https://my-json-server.typicode.com/gabrielfari4/cinetag-api/videos')
+            .then(response => response.json())
+            .then(data => {
+                setVideos(data)
+            })
+    }, [])
 
     return (
         <>
