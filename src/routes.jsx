@@ -5,6 +5,7 @@ import Rodape from "./components/Rodape";
 import Cabecalho from "./components/Cabecalho";
 import Container from "./components/Container";
 import { FavoritosProvider } from "./context/FavoritosProvider";
+import Player from "./pages/Player";
 
 const AppRoutes = () => {
     return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
                     <Routes>
                     <Route path="/" element={<Inicio />} />
                     <Route path="/favoritos" element={<Favoritos />} />
+                    <Route path="/:id" element={<Player />} />
                 </Routes>
                 </FavoritosProvider>
             </Container>
