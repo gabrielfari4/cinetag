@@ -1,0 +1,13 @@
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 70vh;
+    h2 {
+        font-size: 3em;
+    }
+    p {
+        font-size: 2em;
+    }
+}
